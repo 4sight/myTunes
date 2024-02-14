@@ -9,21 +9,16 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
 import javax.swing.KeyStroke;
-
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 
-/*
- * This class exists solely to show you what menus look like.
- * It has no menu-related event handling.
- */
-public class MenuLookDemo {
+public class MyTunes {
     JTextArea output;
     JScrollPane scrollPane;
 
-    public JMenuBar createMenuBar() {
+    public JMenuBar createMenuBar(){
         JMenuBar menuBar;
         JMenu menu, submenu;
         JMenuItem menuItem;
@@ -34,52 +29,16 @@ public class MenuLookDemo {
         menuBar = new JMenuBar();
 
         //Build the first menu.
-        menu = new JMenu("A Menu");
+        menu = new JMenu("File");
         menu.setMnemonic(KeyEvent.VK_A);
         menu.getAccessibleContext().setAccessibleDescription(
                 "The only menu in this program that has menu items");
         menuBar.add(menu);
 
         //a group of JMenuItems
-        menuItem = new JMenuItem("A text-only menu item",
-                                 KeyEvent.VK_T);
-        //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "This doesn't really do anything");
+        menuItem = new JMenuItem("Add file to library...");
+        menuItem.setMnemonic(KeyEvent.VK_O);
         menu.add(menuItem);
-
-        menuItem.setMnemonic(KeyEvent.VK_B);
-        menu.add(menuItem);
-
-        menuItem.setMnemonic(KeyEvent.VK_D);
-        menu.add(menuItem);
-
-        //a group of radio button menu items
-        menu.addSeparator();
-        ButtonGroup group = new ButtonGroup();
-
-        rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
-        rbMenuItem.setSelected(true);
-        rbMenuItem.setMnemonic(KeyEvent.VK_R);
-        group.add(rbMenuItem);
-        menu.add(rbMenuItem);
-
-        rbMenuItem = new JRadioButtonMenuItem("Another one");
-        rbMenuItem.setMnemonic(KeyEvent.VK_O);
-        group.add(rbMenuItem);
-        menu.add(rbMenuItem);
-
-        //a group of check box menu items
-        menu.addSeparator();
-        cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
-        cbMenuItem.setMnemonic(KeyEvent.VK_C);
-        menu.add(cbMenuItem);
-
-        cbMenuItem = new JCheckBoxMenuItem("Another one");
-        cbMenuItem.setMnemonic(KeyEvent.VK_H);
-        menu.add(cbMenuItem);
 
         //a submenu
         menu.addSeparator();
@@ -128,11 +87,11 @@ public class MenuLookDemo {
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("MenuLookDemo");
+        JFrame frame = new JFrame("MyTunes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
-        MenuLookDemo demo = new MenuLookDemo();
+        MyTunes demo = new MyTunes();
         frame.setJMenuBar(demo.createMenuBar());
         frame.setContentPane(demo.createContentPane());
 
