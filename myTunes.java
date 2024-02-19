@@ -30,20 +30,36 @@ public class MyTunes {
 
         //Build the first menu.
         menu = new JMenu("File");
-        menu.setMnemonic(KeyEvent.VK_A);
         menu.getAccessibleContext().setAccessibleDescription(
                 "The only menu in this program that has menu items");
         menuBar.add(menu);
 
         //a group of JMenuItems
         menuItem = new JMenuItem("Add file to library...");
-        menuItem.setMnemonic(KeyEvent.VK_O);
+        KeyStroke keyStrokeToOpen = KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK);
+        menuItem.setAccelerator(keyStrokeToOpen);
+        // menuItem.addActionListener(this);
+        // public void actionPerformed(ActionEvent e) {
+        // //Handle open button action.
+        //   if (e.getSource() == openButton){
+        //     int returnVal = fc.showOpenDialog(FileChooserDemo.this);
+        //     if (returnVal == JFileChooser.APPROVE_OPTION) {
+        //         File file = fc.getSelectedFile();
+        //         //This is where a real application would open the file.
+        //         log.append("Opening: " + file.getName() + "." + newline);
+        //     } else {
+        //         log.append("Open command cancelled by user." + newline);
+        //     }
+        //   }
+        // }
         menu.add(menuItem);
 
-        //a submenu
         menu.addSeparator();
+
+        //a submenu
         submenu = new JMenu("A submenu");
         submenu.setMnemonic(KeyEvent.VK_S);
+        menu.add(submenu);
 
         menuItem = new JMenuItem("An item in the submenu");
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
@@ -53,6 +69,9 @@ public class MyTunes {
         menuItem = new JMenuItem("Another item");
         submenu.add(menuItem);
         menu.add(submenu);
+
+        menuItem = new JMenuItem("Exit");
+        menu.add(menuItem);
 
         //Build second menu in the menu bar.
         menu = new JMenu("Another Menu");
