@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class MyTunes {
+public class MyTunes{
     JTextArea output;
     JScrollPane scrollPane;
 
@@ -38,20 +40,7 @@ public class MyTunes {
         menuItem = new JMenuItem("Add file to library...");
         KeyStroke keyStrokeToOpen = KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK);
         menuItem.setAccelerator(keyStrokeToOpen);
-        // menuItem.addActionListener(this);
-        // public void actionPerformed(ActionEvent e) {
-        // //Handle open button action.
-        //   if (e.getSource() == openButton){
-        //     int returnVal = fc.showOpenDialog(FileChooserDemo.this);
-        //     if (returnVal == JFileChooser.APPROVE_OPTION) {
-        //         File file = fc.getSelectedFile();
-        //         //This is where a real application would open the file.
-        //         log.append("Opening: " + file.getName() + "." + newline);
-        //     } else {
-        //         log.append("Open command cancelled by user." + newline);
-        //     }
-        //   }
-        // }
+        menuItem.addActionListener(this);
         menu.add(menuItem);
 
         menu.addSeparator();
@@ -128,4 +117,22 @@ public class MyTunes {
             }
         });
     }
+
+    // public class OpenFile extends ActionListener{
+
+    // }
+
+    // public void actionPerformed(ActionEvent e) {
+    // //Handle open button action.
+    //   if (e.getSource() == openButton){
+    //     int returnVal = fc.showOpenDialog(FileChooserDemo.this);
+    //     if (returnVal == JFileChooser.APPROVE_OPTION) {
+    //         File file = fc.getSelectedFile();
+    //         //This is where a real application would open the file.
+    //         log.append("Opening: " + file.getName() + "." + newline);
+    //     } else {
+    //         log.append("Open command cancelled by user." + newline);
+    //     }
+    //   }
+    // }
 }
